@@ -22,6 +22,12 @@ class PersonVC: UIViewController {
     
     @IBOutlet weak var btnLike: UIButton!
     
+    @IBOutlet weak var lblAge: UILabel!
+    
+    @IBOutlet weak var lblName: UILabel!
+    
+    @IBOutlet weak var lblStatus: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +61,8 @@ class PersonVC: UIViewController {
                     self.people.append(person)
                 }
                 
+                
+                self.updatePerson(self.people[0])
                 // print("\(response)")
         }
 
@@ -71,18 +79,35 @@ class PersonVC: UIViewController {
         btnNope.addTarget(self, action: #selector(PersonVC.Nope), forControlEvents: .TouchUpInside)
         btnLike.addTarget(self, action: #selector(PersonVC.Like), forControlEvents: .TouchUpInside)
         
-        print("Begin of code")
-        if let checkedUrl = NSURL(string: "http://www.famousbirthdays.com/headshots/zac-efron-1.jpg") {
-            personPlaceHolder.contentMode = .ScaleAspectFit
-            downloadImage(checkedUrl)
-        }
-        print("End of code. The image will continue downloading in the background and it will be loaded when it ends.")
+//        print("Begin of code")
+//        if let checkedUrl = NSURL(string: "http://www.famousbirthdays.com/headshots/zac-efron-1.jpg") {
+//            personPlaceHolder.contentMode = .ScaleAspectFit
+//            downloadImage(checkedUrl)
+//        }
+//        print("End of code. The image will continue downloading in the background and it will be loaded when it ends.")
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updatePerson(person:Person){
+        if let checkedUrl = NSURL(string: person.img) {
+            personPlaceHolder.contentMode = .ScaleAspectFit
+            downloadImage(checkedUrl)
+        }
+        lblAge.text = "\(person.age)"
+        lblName.text = person.name
+        if person.married == true {
+            lblStatus.text = "In relationship"
+        }
+        else{
+            lblStatus.text = "Single"
+        }
+        
+        
     }
     
     func Nope() {

@@ -230,6 +230,9 @@
                     <connections>
                         <outlet property="btnLike" destination="atb-J7-XPz" id="Zp8-PF-MV2"/>
                         <outlet property="btnNope" destination="E4q-xk-Lv3" id="YQ6-LS-Tkj"/>
+                        <outlet property="lblAge" destination="vsI-BT-Sqs" id="GF0-dB-k8T"/>
+                        <outlet property="lblName" destination="WDh-Hi-rft" id="jfy-0R-fSy"/>
+                        <outlet property="lblStatus" destination="NUO-LQ-sIn" id="WEf-D7-H3r"/>
                         <outlet property="personPlaceHolder" destination="xoh-CC-asf" id="Nr7-ZX-cvn"/>
                     </connections>
                 </viewController>
